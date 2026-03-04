@@ -53,6 +53,7 @@ def main():
 
                     index_tip = hand_landmarks.landmark[8]
                     thumb_tip = hand_landmarks.landmark[4]
+                    middle_tip = hand_landmarks.landmark[9]
 
                     cx = sum(hand_landmarks.landmark[id].x for id in points_ids) / len(points_ids)
                     cy = sum(hand_landmarks.landmark[id].y for id in points_ids) / len(points_ids)
@@ -76,8 +77,13 @@ def main():
 
                     ix, iy = int(index_tip.x * w), int(index_tip.y * h)
                     tx, ty = int(thumb_tip.x * w), int(thumb_tip.y * h)
+                    mx, my = int(middle_tip.x * w), int(middle_tip.y * h)
 
                     pinch_distance = math.hypot(ix - tx, iy - ty)
+                    left_pinch_distance = math.hypot(ix - mx, iy - my)
+
+                    if left_pinch_distance < PINCH_START:
+                        pyautogui.leftClick()
 
                     if pinch_distance < PINCH_START:
                         pyautogui.click()
