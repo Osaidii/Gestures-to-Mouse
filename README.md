@@ -21,5 +21,4 @@ A little bit of ai was used to assist in the development of this project
 
 
 The source code is also present in this same repository! 
-Please use a venv with the libraries mentioned in requirements.txt  
-There is a plugin called Hackatime that is a time tracking tool used by Hack Club! It might cause problems if not set up properly, please disable it in Plugins!  
+Please use a venv with the libraries mentioned in requirements.txt   
